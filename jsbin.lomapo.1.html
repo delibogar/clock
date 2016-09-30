@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by delibogar (http://jsbin.com/lomapo/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet">   
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>color-clock</title>
+<style id="jsbin-css">
+#clock{
+ text-align: center;
+}
+html, body {
+  height: 100%;
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 54px;
+  margin-top: -27px;
+}
+
+</style>
+</head>
+<body>
+    <div id="clock">12:13:14</div>
+    
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = '0' + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var hexColor =  '#' + hours + minutes + seconds;  
+  document.getElementById('clock').innerHTML = clockFace;
+  document.body.style.background = hexColor;  
+  
+  setTimeout(function() {
+   colorClock();
+ }, 1000);
+}
+colorClock();
+
+</script>
+</body>
+</html>
